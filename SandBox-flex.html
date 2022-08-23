@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="flex=device-flex, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+      }
+
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      /* Bloque para la sección header */
+      .flex-container-header {
+        display: flex;
+        /* flex-direction: row; Modo fila de izquieda a derecha */
+        /* flex-wrap: wrap; Wrap, ajustamos los items, si algún item sobre pasa va a la siguiente fila */
+        flex-flow: row wrap; /* Este item lo escribimos para ahorrarnos las dos definiciones de arriba, es decir, puede ir esto en vez de las dos líneas de arriba */
+        height: 10vh;
+        /* justify-content: space-between; Espacio entre los elementos */
+        align-items: center; /* Alineamos en el centro */
+        /* border: 1px dashed black; Pueden quitar el borde para ver como queda el espacio.*/
+        margin: 2em; /* Le damos un espacio para el margen */
+      }
+
+      .flex-container-header > .brand-logo,
+      .navigation {
+        flex: 1;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .navigation li {
+        background-color: purple;
+        line-height: 5vh;
+        margin: 1px;
+        text-align: center;
+        list-style: none;
+        flex-basis: 25%;
+        flex-grow: 1;
+        min-width: 0;
+      }
+
+      .navigation li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .flex-container-header > .brand-logo {
+        color: purple;
+        text-align: center;
+        font-size: larger;
+      }
+      .flex-container-header > .brand-logo img {
+        height: 60px;
+      }
+
+      .flex-container-main {
+        display: flex;
+        background-color: rgb(4, 134, 134);
+        color: white;
+        flex-flow: row wrap;
+        margin: 2em; /* Le damos un espacio para el margen */
+        justify-content: center;
+        align-items: center;
+        /* border: 1px dashed black; */
+      }
+
+      .flex-container-main div {
+        text-align: center;
+        line-height: 35vh;
+        font-size: 12px;
+        margin: 1px;
+        height: 35vh;
+      }
+
+      .flex-container-section {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 2em; /* Le damos un espacio para el margen */
+        justify-content: space-between
+          /* Para que se acerque a los bordes y quede bien con el main */;
+        /* border: 1px dashed black; */
+      }
+
+      .flex-container-section article {
+        flex-basis: 45%;
+        background-color: rgb(146, 178, 98);
+        text-align: center;
+        line-height: 10vh;
+        font-size: large;
+        margin-bottom: 2em;
+        /* border: 1px solid black; */
+      }
+
+      /* Dispositivos medianos, tablets */
+      @media (min-width: 481px) and (max-width: 820px) {
+        body {
+          background-color: rgb(204, 243, 241);
+        }
+        .flex-container-header .brand-logo img {
+          height: 60px;
+        }
+        .flex-container-header .brand-logo {
+          flex-basis: 100%;
+          text-align: left;
+        }
+
+        .flex-container-header .navigation {
+          flex-basis: 100%;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        .navigation li {
+          background-color: purple;
+          line-height: 4vh;
+          text-align: center;
+          list-style: none;
+          flex-basis: 35%;
+        }
+
+        .flex-container-section article {
+          flex-basis: 45%;
+          height: 30vh;
+        }
+      }
+
+      /* Dispositivos pequeños, celulares */
+      @media (max-width: 480px) {
+        body {
+          background-color: rgb(233, 205, 237);
+        }
+
+        .flex-container-header > .brand-logo img {
+          height: 40px;
+        }
+
+        .flex-container-header > .brand-logo,
+        .navigation {
+          flex: 100%;
+        }
+
+        .flex-container-header ul {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
+          padding: 0;
+        }
+
+        .navigation li {
+          flex-basis: 40%;
+          background-color: purple;
+          line-height: 2vh;
+        }
+
+        .flex-container-section article {
+          flex-basis: 100%;
+          height: 30vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="flex-container-header">
+      <span class="brand-logo">
+        <!-- Podemos usar una imagen aquí <img src="logo_senpai.png" alt="Logo"/> -->
+        <img src="Logo-Flex-Box.png" alt="Logo" />
+      </span>
+      <ul class="navigation">
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+        <li><a href="#">Menu 4</a></li>
+      </ul>
+    </header>
+    <main class="flex-container-main">
+      <div>
+        <h1>CONTENIDO HERO</h1>
+      </div>
+    </main>
+    <section class="flex-container-section">
+      <article>ARTICULO 1</article>
+      <article>ARTICULO 2</article>
+      <article>ARTICULO 3</article>
+      <article>ARTICULO 4</article>
+    </section>
+  </body>
+</html>
